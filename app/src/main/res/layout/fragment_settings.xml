@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.views.SettingsFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardAvatarSettings"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        app:cardCornerRadius="999dp"
+        app:cardBackgroundColor="@color/green"
+        android:innerRadius="0dp"
+        android:shape="ring">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="999dp"
+            app:cardBackgroundColor="@color/green"
+            android:layout_gravity="center"
+            android:innerRadius="0dp"
+            android:shape="ring">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/imageProfile"
+                android:src="@drawable/ava"
+                android:scaleType="centerCrop"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true">
+            </ImageView>
+        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cardAvatarSettings"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="14dp"
+        android:hint="Имя"
+        android:paddingStart="14dp"/>
+
+    <EditText
+        android:id="@+id/editLastName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editName"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="14dp"
+        android:hint="Фамилия"
+        android:paddingStart="14dp"/>
+
+    <EditText
+        android:id="@+id/editPatronymic"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editLastName"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="14dp"
+        android:hint="Отчество"
+        android:paddingStart="14dp"/>
+
+    
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editPatronymic"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="14dp"
+        android:hint="Email"
+        android:paddingStart="14dp"/>
+
+    <EditText
+        android:id="@+id/editOldPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editEmail"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="14dp"
+        android:hint="Старый пароль"
+        android:paddingStart="14dp"/>
+
+    <EditText
+        android:id="@+id/editNewPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editOldPassword"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="14dp"
+        android:hint="Новый пароль"
+        android:paddingStart="14dp"/>
+    
+    <Button
+        android:id="@+id/saveProfileBtn"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_btn_green"
+        android:text="Сохранить"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"/>
+</RelativeLayout>
