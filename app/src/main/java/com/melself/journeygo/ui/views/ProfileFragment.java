@@ -1,7 +1,10 @@
 package com.melself.journeygo.ui.views;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -41,6 +44,20 @@ public class ProfileFragment extends Fragment {
         binding.recyclerPassport.setLayoutManager(new LinearLayoutManager(getContext()));
         passportAdapter = new PassportAdapter();
         binding.recyclerPassport.setAdapter(passportAdapter);
+
+        binding.addPassportBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new AddPassportFragment());
+            }
+        });
+
+        binding.btnSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                replaceFragment(new SettingsFragment());
+            }
+        });
     }
 
     @Override
@@ -50,4 +67,10 @@ public class ProfileFragment extends Fragment {
         // TODO: Use the ViewModel
     }
 
+    public void replaceFragment(Fragment fragment){
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.frame, fragment);
+        ft.commit();
+    }
 }
