@@ -88,13 +88,6 @@
         android:layout_marginEnd="26dp"
         android:layout_marginTop="26dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerPassport"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/cardAvatar"
-        android:layout_marginTop="40dp"/>
-
     <Button
         android:id="@+id/addPassportBtn"
         android:layout_width="160dp"
