@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:background="@drawable/bg_item_list"
+    android:layout_marginStart="40dp"
+    android:layout_marginEnd="40dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:elevation="5dp">
+
+    <TextView
+        android:id="@+id/typePassportList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type Passport"
+        android:maxLength="30"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/initialsPassportList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typePassportList"
+        android:text="Initials"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        android:textColor="@color/white"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="12dp"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <TextView
+        android:id="@+id/numberPassportList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/initialsPassportList"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="4dp"
+        android:text="price"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        tools:ignore="HardcodedText,SmallSp" />
+
+
+    <ImageButton
+        android:id="@+id/editPassport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/ic_edit"
+        android:layout_margin="14dp"/>
+
+
+
+</RelativeLayout>

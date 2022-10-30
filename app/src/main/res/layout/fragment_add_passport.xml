@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.views.AddPassportFragment">
+
+    <EditText
+        android:id="@+id/editNamePassport"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="14dp"
+        android:hint="Название страны"
+        android:paddingStart="14dp"/>
+
+    <EditText
+        android:id="@+id/editInitialsPassport"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editNamePassport"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="14dp"
+        android:hint="ФИО"
+        android:paddingStart="14dp"/>
+
+    <EditText
+        android:id="@+id/editNumberPassport"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editInitialsPassport"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="14dp"
+        android:hint="Номер паспорта"
+        android:paddingStart="14dp"/>
+
+    <Button
+        android:id="@+id/savePassportBtn"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_btn_green"
+        android:text="Добавить"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"/>
+
+</RelativeLayout>
