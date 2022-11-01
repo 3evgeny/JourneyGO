@@ -24,7 +24,7 @@
         android:hint="ФИО"
         android:paddingStart="14dp"/>
 
-    <EditText
+    .<EditText
         android:id="@+id/editNumberPassport"
         android:layout_width="300dp"
         android:layout_height="wrap_content"

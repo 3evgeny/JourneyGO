@@ -42,6 +42,7 @@ public class SignUpFragment extends Fragment {
                 replaceFragment(new SignUpContactFragment());
             }
         });
+
     }
 
     @Override
