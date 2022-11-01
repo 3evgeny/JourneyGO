@@ -80,6 +80,7 @@ public class ProfileFragment extends Fragment {
                 binding.ageProfile.setText(profile.getAge());
                 binding.typeMainPassport.setText(profile.getMainPassport());
                 binding.initialMainPassport.setText(profile.getMainInitialPassport());
+                binding.numberMainPassport.setText(profile.getMainNumberPassport());
                 binding.typeInterPassport.setText(profile.getInterPassport());
                 binding.initialInterPassport.setText(profile.getInterInitialPassport());
                 binding.numberInterPassport.setText(profile.getInterNumberPassport());
