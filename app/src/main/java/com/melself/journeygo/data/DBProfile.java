@@ -27,9 +27,6 @@ public class DBProfile {
     @ColumnInfo(name = "_age")
     private String age;
 
-    @ColumnInfo(name = "_phone")
-    private String phone;
-
     @ColumnInfo(name = "_mainPassport")
     private String mainPassport;
 
@@ -47,7 +44,6 @@ public class DBProfile {
 
     @ColumnInfo(name = "_interNumberPassport")
     private String interNumberPassport;
-
     @Ignore
     public DBProfile() {
     }
@@ -65,6 +61,7 @@ public class DBProfile {
         this.interPassport = interPassport;
         this.interInitialPassport = interInitialPassport;
         this.interNumberPassport = interNumberPassport;
+
     }
 
     public long getId() {
@@ -105,14 +102,6 @@ public class DBProfile {
 
     public void setAge(String age) {
         this.age = age;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getMainPassport() {
