@@ -44,24 +44,24 @@ public class DBProfile {
 
     @ColumnInfo(name = "_interNumberPassport")
     private String interNumberPassport;
+
     @Ignore
     public DBProfile() {
     }
 
-    public DBProfile(long id, String firstName, String lastName, String patronymic, String age, String phone, String mainPassport, String mainInitialPassport, String mainNumberPassport, String interPassport, String interInitialPassport, String interNumberPassport) {
+
+    public DBProfile(long id, String firstName, String lastName, String patronymic, String age, String mainPassport, String mainInitialPassport, String mainNumberPassport, String interPassport, String interInitialPassport, String interNumberPassport) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.patronymic = patronymic;
         this.age = age;
-        this.phone = phone;
         this.mainPassport = mainPassport;
         this.mainInitialPassport = mainInitialPassport;
         this.mainNumberPassport = mainNumberPassport;
         this.interPassport = interPassport;
         this.interInitialPassport = interInitialPassport;
         this.interNumberPassport = interNumberPassport;
-
     }
 
     public long getId() {

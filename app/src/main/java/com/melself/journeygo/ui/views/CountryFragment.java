@@ -25,6 +25,8 @@ import com.melself.journeygo.ui.viewmodels.CountryViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.Objects;
+
 public class CountryFragment extends Fragment {
 
     private CountryViewModel mViewModel;
@@ -75,9 +77,13 @@ public class CountryFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(CountryViewModel.class);
         // TODO: Use the ViewModel
 
-//        mViewModel.insert(new Country(0,"French", "С чего начинать путешествие по Франции. Нельзя встать утром с кровати и огласить семье, что мы завтра едем во Францию", "10000" ));
-//        mViewModel.insert(new Country(0,"Russia", "Россия — страна большая, поэтому определиться с тем, куда поехать, — сложно. ", "9000" ));
-//        mViewModel.insert(new Country(0,"USA", "ША - федеративная президентская республика, которая административно состоит из 50 штатов", "12000" ));
+//        if (!Objects.nonNull(mViewModel.getAllCountriesFromView().getValue())){
+//            mViewModel.insert(new Country(0,"French", "С чего начинать путешествие по Франции. Нельзя встать утром с кровати и огласить семье, что мы завтра едем во Францию", "10000" ));
+//            mViewModel.insert(new Country(0,"Russia", "Россия — страна большая, поэтому определиться с тем, куда поехать, — сложно. ", "9000" ));
+//            mViewModel.insert(new Country(0,"USA", "ША - федеративная президентская республика, которая административно состоит из 50 штатов", "12000" ));
+//        }
+
+
 
 
 
