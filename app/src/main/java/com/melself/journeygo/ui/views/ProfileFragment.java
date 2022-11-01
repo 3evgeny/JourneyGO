@@ -86,8 +86,6 @@ public class ProfileFragment extends Fragment {
                 binding.numberInterPassport.setText(profile.getInterNumberPassport());
             }
         });
-
-
     }
 
     public void replaceFragment(Fragment fragment){
