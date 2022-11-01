@@ -120,5 +120,6 @@ public class Profile {
 
     public void setInterNumberPassport(String interNumberPassport) {
         this.interNumberPassport = interNumberPassport;
+
     }
 }

@@ -49,6 +49,7 @@ public class DBProfile {
     public DBProfile() {
     }
 
+
     public DBProfile(long id, String firstName, String lastName, String patronymic, String age, String mainPassport, String mainInitialPassport, String mainNumberPassport, String interPassport, String interInitialPassport, String interNumberPassport) {
         this.id = id;
         this.firstName = firstName;
