@@ -50,19 +50,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_edit_text_search"
-        android:hint="Ваша фамилия"
-        android:paddingStart="20dp"
-        android:textColorHint="@color/lime"/>
-
-    <EditText
-        android:id="@+id/phoneSignUp"
-        android:layout_width="250dp"
-        android:layout_height="35dp"
-        android:layout_below="@+id/patronymicSignUp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/bg_edit_text_search"
-        android:hint="Номер телефона"
+        android:hint="Ваше отчество"
         android:paddingStart="20dp"
         android:textColorHint="@color/lime"/>
 
@@ -70,7 +58,7 @@
         android:id="@+id/signUpBtn"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_below="@+id/phoneSignUp"
+        android:layout_below="@+id/patronymicSignUp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_btn_list"

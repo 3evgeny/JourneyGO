@@ -7,12 +7,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.melself.journeygo.data.model.Country;
 import com.melself.journeygo.databinding.ListCountryBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryViewHolder> {
+
+    private List<Country> data = new ArrayList<>();
 
     public static class CountryViewHolder extends RecyclerView.ViewHolder {
         ListCountryBinding binding;
@@ -22,8 +26,10 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
             binding = item;
         }
 
-        public void bindView(){
-
+        public void bindView(Country country){
+            binding.nameCountryList.setText(country.getName());
+            binding.descriptionCountryList.setText(country.getDescription());
+            binding.priceCountryList.setText(country.getPrice() + " руб.");
         }
     }
 
@@ -36,12 +42,23 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
 
     @Override
     public void onBindViewHolder(@NonNull CountryAdapter.CountryViewHolder holder, int position) {
-
+        Country country = data.get(position);
+        holder.bindView(country);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return data.size();
+    }
+
+    public void setCountry(List<Country> country){
+        this.data = country;
+        notifyDataSetChanged();
+    }
+
+    public void filterList(List<Country> filterList) {
+        data = filterList;
+        notifyDataSetChanged();
     }
 
 }

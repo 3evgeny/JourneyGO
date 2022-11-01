@@ -1,5 +1,6 @@
 package com.melself.journeygo.ui.views;
 
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.melself.journeygo.R;
+import com.melself.journeygo.data.model.Profile;
 import com.melself.journeygo.databinding.FragmentProfileBinding;
 import com.melself.journeygo.databinding.FragmentSettingsBinding;
 import com.melself.journeygo.ui.viewmodels.SettingsViewModel;
@@ -38,7 +40,30 @@ public class SettingsFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(SettingsViewModel.class);
-        // TODO: Use the ViewModel
+
+        mViewModel.getProfileFromView(1).observe(getViewLifecycleOwner(), new Observer<Profile>() {
+            @Override
+            public void onChanged(Profile profile) {
+                binding.editName.setText(profile.getFirstName());
+                binding.editLastName.setText(profile.getLastName());
+                binding.editPatronymic.setText(profile.getPatronymic());
+            }
+        });
+
+        binding.saveProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mViewModel.getProfileFromView(1).observe(getViewLifecycleOwner(), new Observer<Profile>() {
+                    @Override
+                    public void onChanged(Profile profile) {
+                        profile.setFirstName(binding.editName.getText().toString());
+                        profile.setLastName(binding.editLastName.getText().toString());
+                        profile.setPatronymic(binding.editPatronymic.getText().toString());
+                        mViewModel.update(profile);
+                    }
+                });
+            }
+        });
     }
 
 }

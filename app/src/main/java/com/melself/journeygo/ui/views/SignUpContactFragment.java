@@ -14,9 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.melself.journeygo.MainActivity;
-import com.melself.journeygo.R;
+import com.melself.journeygo.data.model.Profile;
 import com.melself.journeygo.databinding.FragmentSignUpContactBinding;
 import com.melself.journeygo.ui.viewmodels.SignUpContactViewModel;
+
+import java.util.List;
 
 public class SignUpContactFragment extends Fragment {
 
@@ -37,13 +39,7 @@ public class SignUpContactFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        binding.signUpBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     @Override
@@ -51,5 +47,28 @@ public class SignUpContactFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(SignUpContactViewModel.class);
         // TODO: Use the ViewModel
+
+        binding.signUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mViewModel.insert(
+                        new Profile(
+                                0,
+                                binding.firstNameSignUp.getText().toString(),
+                                binding.lastNameSignUp.getText().toString(),
+                                binding.patronymicSignUp.getText().toString(),
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                "",
+                                ""
+                                )
+                        )   ;
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
