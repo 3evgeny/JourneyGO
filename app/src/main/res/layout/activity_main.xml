@@ -19,6 +19,8 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/bg_bottom_nav_view"
         app:menu="@menu/bottom_nav_items"
+        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
         app:itemIconTint="@drawable/bottom_nav_view_selector"
         app:itemTextColor="@color/white"/>
+
 </RelativeLayout>

@@ -187,4 +187,11 @@
             android:layout_margin="14dp"
             android:background="@drawable/ic_edit" />
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/callPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

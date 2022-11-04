@@ -5,6 +5,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -64,6 +66,15 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 replaceFragment(new SettingsFragment());
+            }
+        });
+
+        binding.callPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:0987654321"));
+                startActivity(intent);
             }
         });
     }
