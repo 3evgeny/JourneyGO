@@ -31,5 +31,3 @@ u
 Eapp/src/main/java/com/melself/journeygo/ui/views/CountryFragment.java,6\a\6ae0ed5bd7be8b2b89afaa7748fd215dd6faaf42
 ~
 Napp/src/main/java/com/melself/journeygo/data/repository/CountryRepository.java,d\1\d1a45f257d53d70bba91c7aec1960d50b1d52023
-i
-9app/src/main/java/com/melself/journeygo/MainActivity.java,c\b\cb6f2a158e3089104798fb3119005d295757f660

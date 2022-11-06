@@ -7,9 +7,11 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationBarView;
 import com.melself.journeygo.databinding.ActivityMainBinding;
@@ -18,6 +20,8 @@ import com.melself.journeygo.ui.views.CountryFragment;
 import com.melself.journeygo.ui.views.HotelFragment;
 import com.melself.journeygo.ui.views.ProfileFragment;
 import com.melself.journeygo.ui.views.TicketFragment;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+
 
         replaceFragment(new CountryFragment());
         binding.bottomNavView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
