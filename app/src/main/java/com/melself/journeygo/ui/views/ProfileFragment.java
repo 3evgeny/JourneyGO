@@ -18,6 +18,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.melself.journeygo.AuthActivity;
+import com.melself.journeygo.MainActivity;
 import com.melself.journeygo.R;
 import com.melself.journeygo.data.model.Profile;
 import com.melself.journeygo.databinding.FragmentProfileBinding;
@@ -69,11 +71,11 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        binding.callPhone.setOnClickListener(new View.OnClickListener() {
+        binding.signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:0987654321"));
+                Intent intent = new Intent(getContext(), AuthActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
