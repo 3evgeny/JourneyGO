@@ -8,16 +8,16 @@
         android:icon="@drawable/ic_country"/>
 
     <item
-        android:id="@+id/hotel"
-        android:title="Отели"
-        android:enabled="true"
-        android:icon="@drawable/ic_hotel"/>
-
-    <item
         android:id="@+id/ticket"
         android:title="Поездки"
         android:enabled="true"
         android:icon="@drawable/ic_ticket"/>
+
+    <item
+        android:id="@+id/chat"
+        android:title="Связь"
+        android:enabled="true"
+        android:icon="@drawable/chat"/>
 
     <item
         android:id="@+id/profile"

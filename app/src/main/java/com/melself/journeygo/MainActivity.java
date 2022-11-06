@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.navigation.NavigationBarView;
 import com.melself.journeygo.databinding.ActivityMainBinding;
+import com.melself.journeygo.ui.views.ChatFragment;
 import com.melself.journeygo.ui.views.CountryFragment;
 import com.melself.journeygo.ui.views.HotelFragment;
 import com.melself.journeygo.ui.views.ProfileFragment;
@@ -20,6 +22,8 @@ import com.melself.journeygo.ui.views.TicketFragment;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.country:
                         replaceFragment(new CountryFragment());
                         break;
-                    case R.id.hotel:
-                        replaceFragment(new HotelFragment());
+                    case R.id.chat:
+                        replaceFragment(new ChatFragment());
                         break;
                     case R.id.ticket:
                         replaceFragment(new TicketFragment());

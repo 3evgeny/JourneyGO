@@ -1,14 +1,23 @@
 package com.melself.journeygo.ui.Adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.melself.journeygo.MainActivity;
+import com.melself.journeygo.R;
 import com.melself.journeygo.data.model.Country;
 import com.melself.journeygo.databinding.ListCountryBinding;
+import com.melself.journeygo.ui.views.HotelFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +26,13 @@ import java.util.List;
 public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryViewHolder> {
 
     private List<Country> data = new ArrayList<>();
+    private Context context;
 
-    public static class CountryViewHolder extends RecyclerView.ViewHolder {
+    public CountryAdapter(Context context) {
+        this.context = context;
+    }
+
+    public class CountryViewHolder extends RecyclerView.ViewHolder {
         ListCountryBinding binding;
 
         public CountryViewHolder(ListCountryBinding item) {
@@ -29,7 +43,12 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
         public void bindView(Country country){
             binding.nameCountryList.setText(country.getName());
             binding.descriptionCountryList.setText(country.getDescription());
-            binding.priceCountryList.setText(country.getPrice() + " руб.");
+            binding.checkBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    replaceFragment(new HotelFragment());
+                }
+            });
         }
     }
 
@@ -61,4 +80,10 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
         notifyDataSetChanged();
     }
 
+    public void replaceFragment(Fragment fragment){
+        FragmentManager fm = ((AppCompatActivity)context).getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.frame, fragment);
+        ft.commit();
+    }
 }

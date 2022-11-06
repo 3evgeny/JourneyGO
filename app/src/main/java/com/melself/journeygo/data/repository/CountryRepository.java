@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CountryRepository {
-
     private CountryDAO countryDAO;
     private LiveData<List<DBCountry>> getAllCountiesRepository;
     private LiveData<DBCountry> getCountryRepository;
@@ -27,14 +26,12 @@ public class CountryRepository {
         countryDAO = appDatabase.getCountryDAO();
         getAllCountiesRepository = countryDAO.getAllCountries();
     }
-
     public void insertCountry(Country country){
         DBCountry dbCountry = DBCountry.convertToDBCountry(country);
         AppDatabase.databaseWriteExecutor.execute(() -> {
             countryDAO.insertCountry(dbCountry);
         });
     }
-
     public void updateCountry(Country country){
         DBCountry dbCountry = DBCountry.convertToDBCountry(country);
         AppDatabase.databaseWriteExecutor.execute(() -> {

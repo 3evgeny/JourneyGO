@@ -50,7 +50,7 @@ public class CountryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         binding.recyclerCountry.setLayoutManager(new LinearLayoutManager(getContext()));
-        countryAdapter = new CountryAdapter();
+        countryAdapter = new CountryAdapter(getContext());
         binding.recyclerCountry.setAdapter(countryAdapter);
 
         binding.searchCountry.addTextChangedListener(new TextWatcher() {
@@ -75,30 +75,18 @@ public class CountryFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(CountryViewModel.class);
-        // TODO: Use the ViewModel
 
-//        if (!Objects.nonNull(mViewModel.getAllCountriesFromView().getValue())){
-//            mViewModel.insert(new Country(0,"French", "С чего начинать путешествие по Франции. Нельзя встать утром с кровати и огласить семье, что мы завтра едем во Францию", "10000" ));
-//            mViewModel.insert(new Country(0,"Russia", "Россия — страна большая, поэтому определиться с тем, куда поехать, — сложно. ", "9000" ));
-//            mViewModel.insert(new Country(0,"USA", "ША - федеративная президентская республика, которая административно состоит из 50 штатов", "12000" ));
-//        }
-
-
-
-
-
-
+//        mViewModel.insert(new Country(0,"French", "С чего начинать путешествие по Франции. Нельзя встать утром с кровати и огласить семье, что мы завтра едем во Францию", "10000" ));
+//        mViewModel.insert(new Country(0,"Russia", "Россия — страна большая, поэтому определиться с тем, куда поехать, — сложно. ", "9000" ));
+//        mViewModel.insert(new Country(0,"USA", "ША - федеративная президентская республика, которая административно состоит из 50 штатов", "12000" ));
 
 //        mViewModel.getCountryFromView(4).observe(getViewLifecycleOwner(), new Observer<Country>() {
 //            @Override
 //            public void onChanged(Country country) {
-//                System.out.println(country.getName());
-//                //mViewModel.delete(country);
-//                country.setDescription("В любом уголке России есть масса интересных мест.");
-//                country.setPrice("5000");
-//                mViewModel.update(country);
+//                mViewModel.delete(country);
 //            }
 //        });
+
 
         mViewModel.getAllCountriesFromView().observe(getViewLifecycleOwner(), new Observer<List<Country>>() {
             @Override

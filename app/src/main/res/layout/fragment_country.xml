@@ -12,7 +12,7 @@
         android:layout_height="35dp"
         android:drawableStart="@drawable/ic_search"
         android:background="@drawable/bg_edit_text_search"
-        android:hint="Найти"
+        android:hint="Найти страну"
         android:textColorHint="@color/lime"
         android:textColor="@color/green"
         android:paddingStart="10dp"
