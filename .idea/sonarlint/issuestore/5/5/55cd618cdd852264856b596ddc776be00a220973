@@ -1,0 +1,17 @@
+
+C
+java:S1604*"(Make this anonymous inner class a lambda(’•±çÿÿÿÿÿ
+C
+java:S16042"(Make this anonymous inner class a lambda(ìÚé¥ÿÿÿÿÿ
+r
+java:S1488$"\Immediately return this expression instead of assigning it to the temporary variable "view".(Ò÷“¥
+t
+java:S1450"YRemove the "mViewModel" field and declare it as a local variable in the relevant methods.(Â¢Óµúÿÿÿÿ
+`
+java:S1874;"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(Ö‰ü¼
+O
+java:S1874<"9Remove this use of "onActivityCreated"; it is deprecated.(€…É’
+M
+java:S1135>"2Complete the task associated to this TODO comment.(ûìÿÖøÿÿÿÿ
+I
+java:S1068".Remove this unused "mViewModel" private field.(Â¢Óµúÿÿÿÿ

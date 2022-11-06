@@ -1,0 +1,19 @@
+
+C
+java:S1604-"(Make this anonymous inner class a lambda(¸˜­‰ýÿÿÿÿ
+C
+java:S16046"(Make this anonymous inner class a lambda(‚í§üûÿÿÿÿ
+C
+java:S1604?"(Make this anonymous inner class a lambda(à´ÂŽÿÿÿÿÿ
+>
+java:S1604L"(Make this anonymous inner class a lambda(Ó²òµ
+r
+java:S1488&"\Immediately return this expression instead of assigning it to the temporary variable "view".(Ò÷“¥
+o
+java:S1450"YRemove the "mViewModel" field and declare it as a local variable in the relevant methods.(œÚá‡
+`
+java:S1874H"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(Ö‰ü¼
+O
+java:S1874I"9Remove this use of "onActivityCreated"; it is deprecated.(€…É’
+M
+java:S1135K"2Complete the task associated to this TODO comment.(ûìÿÖøÿÿÿÿ

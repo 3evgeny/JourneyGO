@@ -1,0 +1,13 @@
+
+>
+java:S1604,"(Make this anonymous inner class a lambda(Ó²òµ
+>
+java:S16048"(Make this anonymous inner class a lambda(Ó²òµ
+>
+java:S16045"(Make this anonymous inner class a lambda(ùìïÆ
+r
+java:S1488#"\Immediately return this expression instead of assigning it to the temporary variable "view".(Ò÷“¥
+`
+java:S1874("JDon't override a deprecated method or explicitly mark it as "@Deprecated".(Ö‰ü¼
+O
+java:S1874)"9Remove this use of "onActivityCreated"; it is deprecated.(€…É’
