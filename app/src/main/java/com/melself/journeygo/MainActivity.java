@@ -1,11 +1,16 @@
 package com.melself.journeygo;
 
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.Manifest;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Context context;
 
+    final int callbackId = 42;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        checkPermission(callbackId, Manifest.permission.READ_CALENDAR, Manifest.permission.WRITE_CALENDAR);
 
 
         replaceFragment(new CountryFragment());
@@ -66,5 +74,15 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.frame, fragment);
         ft.commit();
+    }
+
+    private void checkPermission(int callbackId, String... permissionsId) {
+        boolean permissions = true;
+        for (String p : permissionsId) {
+            permissions = permissions && ContextCompat.checkSelfPermission(this, p) == PERMISSION_GRANTED;
+        }
+
+        if (!permissions)
+            ActivityCompat.requestPermissions(this, permissionsId, callbackId);
     }
 }

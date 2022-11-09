@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.views.BuyFragment">
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Отель"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="14dp"/>
+
+    <TextView
+        android:id="@+id/hotelName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name Hotel"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:textColor="@color/green"
+        android:layout_below="@+id/txt1"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="14dp"/>
+
+    <TextView
+        android:id="@+id/descriptionHotelBuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:textSize="16dp"
+        android:layout_below="@+id/hotelName"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="14dp"/>
+
+
+    <TextView
+        android:id="@+id/touristTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Туристы"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_below="@+id/descriptionHotelBuy"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="14dp"/>
+
+    <TextView
+        android:id="@+id/adultsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Взросые"
+        android:textSize="16dp"
+        android:layout_below="@+id/touristTxt"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="14dp"/>
+
+    <EditText
+        android:id="@+id/selectAdult"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/adultsTxt"
+        android:layout_alignParentEnd="true"
+        android:inputType="number"
+        android:maxLength="2"
+        android:layout_marginEnd="20dp" />
+
+    <TextView
+        android:id="@+id/childTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дети"
+        android:textSize="16dp"
+        android:layout_below="@+id/adultsTxt"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="14dp"/>
+
+    <EditText
+        android:id="@+id/selectChild"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/childTxt"
+        android:layout_alignParentEnd="true"
+        android:inputType="number"
+        android:maxLength="2"
+        android:layout_marginEnd="20dp" />
+
+    <TextView
+        android:id="@+id/checkInTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дата заселения"
+        android:textSize="16dp"
+        android:layout_below="@+id/childTxt"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="14dp"/>
+
+    <TextView
+        android:id="@+id/checkInSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выбрать"
+        android:textSize="14dp"
+        android:textColor="@color/green"
+        android:layout_alignTop="@+id/checkInTxt"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="14dp"/>
+
+    <TextView
+        android:id="@+id/checkOutTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дата выселения"
+        android:textSize="16dp"
+        android:layout_below="@+id/checkInTxt"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="14dp"/>
+
+    <TextView
+        android:id="@+id/checkOutSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Выбрать"
+        android:textSize="14dp"
+        android:textColor="@color/green"
+        android:layout_alignTop="@+id/checkOutTxt"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="14dp"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Итоговая цена:"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/checkOutTxt"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="14dp"/>
+
+    <Button
+        android:id="@+id/btnBuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Купить"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"/>
+</RelativeLayout>

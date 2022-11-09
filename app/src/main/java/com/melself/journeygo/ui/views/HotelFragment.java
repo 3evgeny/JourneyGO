@@ -14,9 +14,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.melself.journeygo.R;
+import com.melself.journeygo.data.model.Hotel;
 import com.melself.journeygo.databinding.FragmentHotelBinding;
 import com.melself.journeygo.ui.Adapters.HotelAdapter;
 import com.melself.journeygo.ui.viewmodels.HotelViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HotelFragment extends Fragment {
 
@@ -39,7 +43,7 @@ public class HotelFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         binding.recyclerHotel.setLayoutManager(new LinearLayoutManager(getContext()));
-        hotelAdapter = new HotelAdapter();
+        hotelAdapter = new HotelAdapter(getContext());
         binding.recyclerHotel.setAdapter(hotelAdapter);
     }
 
@@ -48,6 +52,17 @@ public class HotelFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(HotelViewModel.class);
         // TODO: Use the ViewModel
+
+        Hotel hotel = new Hotel();
+        hotel.setId(0);
+        hotel.setName("Azimut");
+        hotel.setDescription("City: Moscow");
+        hotel.setPrice("10000");
+
+        List<Hotel> hotels = new ArrayList<>();
+        hotels.add(hotel);
+
+        hotelAdapter.setHotels(hotels);
     }
 
 }
