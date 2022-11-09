@@ -1,0 +1,13 @@
+
+y
+java:S1488'"\Immediately return this expression instead of assigning it to the temporary variable "view".(Ò÷“¥8§›ÂíÅ0
+{
+java:S1450"YRemove the "mViewModel" field and declare it as a local variable in the relevant methods.(ßÿ»×şÿÿÿÿ8à›ÂíÅ0
+g
+java:S18743"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(Ö‰ü¼8ê›ÂíÅ0
+V
+java:S18744"9Remove this use of "onActivityCreated"; it is deprecated.(€…É’8ë›ÂíÅ0
+T
+java:S11356"2Complete the task associated to this TODO comment.(ûìÿÖøÿÿÿÿ8ì›ÂíÅ0
+P
+java:S1068".Remove this unused "mViewModel" private field.(ßÿ»×şÿÿÿÿ8í›ÂíÅ0

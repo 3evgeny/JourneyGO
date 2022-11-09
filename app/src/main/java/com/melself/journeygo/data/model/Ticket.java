@@ -6,18 +6,18 @@ public class Ticket {
     private String country;
     private String hotel;
     private String date;
-    private String price;
+    private String status;
 
     public Ticket() {
     }
 
-    public Ticket(long id, String number, String country, String hotel, String date, String price) {
+    public Ticket(long id, String number, String country, String hotel, String date, String status) {
         this.id = id;
         this.number = number;
         this.country = country;
         this.hotel = hotel;
         this.date = date;
-        this.price = price;
+        this.status = status;
     }
 
     public long getId() {
@@ -32,7 +32,7 @@ public class Ticket {
         return number;
     }
 
-    public void setName(String name) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
@@ -60,11 +60,11 @@ public class Ticket {
         this.date = date;
     }
 
-    public String getPrice() {
-        return price;
+    public String getStatus() {
+        return status;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

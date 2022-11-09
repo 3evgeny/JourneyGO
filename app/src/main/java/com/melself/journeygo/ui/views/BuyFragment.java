@@ -4,6 +4,7 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
@@ -25,10 +26,14 @@ import android.widget.DatePicker;
 
 import com.melself.journeygo.MainActivity;
 import com.melself.journeygo.R;
+import com.melself.journeygo.data.model.Country;
+import com.melself.journeygo.data.model.Ticket;
 import com.melself.journeygo.databinding.FragmentBuyBinding;
 import com.melself.journeygo.ui.viewmodels.BuyViewModel;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class BuyFragment extends Fragment {
 
@@ -41,6 +46,10 @@ public class BuyFragment extends Fragment {
 
     long startMillis = 0;
     long endMillis = 0;
+
+    String dateStart;
+    String dateEnd;
+    String dateDb;
 
 
     public static BuyFragment newInstance() {
@@ -81,6 +90,7 @@ public class BuyFragment extends Fragment {
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         month = month1+1;
                         String date = dayOfMonth+"/"+month+"/"+year;
+                        dateStart = dayOfMonth+"/"+month+"/"+year;
                         binding.checkInSelect.setText(date);
 
                         Calendar beginTime = Calendar.getInstance();
@@ -102,6 +112,7 @@ public class BuyFragment extends Fragment {
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         month = month1+1;
                         String date = dayOfMonth+"/"+month+"/"+year;
+                        dateEnd= dayOfMonth+"/"+month+"/"+year;
                         binding.checkOutSelect.setText(date);
 
                         Calendar endTime = Calendar.getInstance();
@@ -126,6 +137,11 @@ public class BuyFragment extends Fragment {
                 values.put(CalendarContract.Events.CALENDAR_ID, 3);
                 values.put(CalendarContract.Events.EVENT_TIMEZONE, "America/Los_Angeles");
                 Uri uri = cr.insert(CalendarContract.Events.CONTENT_URI, values);
+
+                dateDb = dateStart + " - " + dateEnd;
+                System.out.println(descriptionHotel);
+                mViewModel.insert(new Ticket(0, "12345", descriptionHotel, nameHotel, dateDb, "Оплачено"));
+
             }
         });
 
