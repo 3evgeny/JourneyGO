@@ -62,15 +62,6 @@ public class TicketFragment extends Fragment {
                 ticketAdapter.setTickets(tickets);
             }
         });
-
-//        mViewModel.getTicketFromView(1).observe(getViewLifecycleOwner(), new Observer<Ticket>() {
-//            @Override
-//            public void onChanged(Ticket ticket) {
-//                System.out.println(ticket.getCountry());
-//                itemList.add(ticket);
-//                System.out.println(itemList.size());
-//            }
-//        });
     }
 
 }
