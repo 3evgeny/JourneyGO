@@ -55,9 +55,6 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
                     replaceFragment(new BuyFragment());
                 }
             });
-
-
-
         }
     }
 

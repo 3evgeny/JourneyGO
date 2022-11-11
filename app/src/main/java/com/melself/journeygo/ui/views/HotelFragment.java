@@ -1,7 +1,11 @@
 package com.melself.journeygo.ui.views;
 
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,14 +17,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.melself.journeygo.R;
 import com.melself.journeygo.data.model.Hotel;
+import com.melself.journeygo.data.retrofit.HotelService;
+import com.melself.journeygo.data.retrofit.Root;
 import com.melself.journeygo.databinding.FragmentHotelBinding;
 import com.melself.journeygo.ui.Adapters.HotelAdapter;
 import com.melself.journeygo.ui.viewmodels.HotelViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HotelFragment extends Fragment {
 
@@ -53,16 +68,17 @@ public class HotelFragment extends Fragment {
         mViewModel = new ViewModelProvider(this).get(HotelViewModel.class);
         // TODO: Use the ViewModel
 
-        Hotel hotel = new Hotel();
-        hotel.setId(0);
-        hotel.setName("Azimut");
-        hotel.setDescription("City: Moscow");
-        hotel.setPrice("10000");
+        Bundle bundle = this.getArguments();
+        String location = bundle.getString("nameCountry");
+        System.out.println(location);
 
-        List<Hotel> hotels = new ArrayList<>();
-        hotels.add(hotel);
-
-        hotelAdapter.setHotels(hotels);
+        mViewModel.getHotels(location).observe(getViewLifecycleOwner(), new Observer<List<Hotel>>() {
+            @Override
+            public void onChanged(List<Hotel> hotels) {
+                System.out.println(hotels.get(0).getDescription());
+                hotelAdapter.setHotels(hotels);
+            }
+        });
     }
 
 }

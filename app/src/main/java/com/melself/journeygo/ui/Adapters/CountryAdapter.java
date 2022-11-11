@@ -1,6 +1,7 @@
 package com.melself.journeygo.ui.Adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
 
     private List<Country> data = new ArrayList<>();
     private Context context;
+    Bundle bundle;
 
     public CountryAdapter(Context context) {
         this.context = context;
@@ -46,6 +48,8 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
             binding.checkBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    bundle = new Bundle();
+                    bundle.putString("nameCountry", country.getName());
                     replaceFragment(new HotelFragment());
                 }
             });
@@ -83,6 +87,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
     public void replaceFragment(Fragment fragment){
         FragmentManager fm = ((AppCompatActivity)context).getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
+        fragment.setArguments(bundle);
         ft.replace(R.id.frame, fragment);
         ft.commit();
     }
