@@ -24,6 +24,9 @@ public interface TicketDAO {
     @Query("SELECT * FROM tickets WHERE _id ==:id ")
     LiveData<DBTicket> getTicket(long id);
 
+    @Query("SELECT * FROM tickets WHERE _person_id ==:person_id ")
+    LiveData<List<DBTicket>> getTicketPerson(long person_id);
+
     @Query("SELECT * FROM tickets")
     LiveData<List<DBTicket>> getAllTickets();
 }

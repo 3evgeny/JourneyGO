@@ -20,6 +20,8 @@ public class AuthActivity extends AppCompatActivity {
 
     ActivityAuthBinding binding;
 
+    public static int maxID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,7 @@ public class AuthActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
+        //Deep Link
         final Intent intent = getIntent();
         final String action = intent.getAction();
         final String data = intent.getDataString();

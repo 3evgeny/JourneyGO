@@ -25,6 +25,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/searchCountry"
+        android:layout_above="@+id/newCountry"
         android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/newCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/newDescription"
+        android:visibility="invisible"
+        android:hint="Название страны"/>
+
+    <EditText
+        android:id="@+id/newDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/addNewCountry"
+        android:visibility="invisible"
+        android:hint="Описание"/>
+
+    <Button
+        android:id="@+id/addNewCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible"
+        android:text="Добавить"/>
 
 </RelativeLayout>

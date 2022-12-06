@@ -31,6 +31,16 @@ public class ProfileFragment extends Fragment {
     FragmentProfileBinding binding;
     Bundle bundle;
 
+    MainActivity mainActivity;
+    long id;
+
+    public ProfileFragment(long id){
+        this.id = id;
+    }
+
+    public ProfileFragment(){
+    }
+
     public static ProfileFragment newInstance() {
         return new ProfileFragment();
     }
@@ -86,7 +96,8 @@ public class ProfileFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
         // TODO: Use the ViewModel
-        mViewModel.getProfileFromView(1).observe(getViewLifecycleOwner(), new Observer<Profile>() {
+
+        mViewModel.getProfileFromView(id).observe(getViewLifecycleOwner(), new Observer<Profile>() {
             @Override
             public void onChanged(Profile profile) {
                 binding.fioProfile.setText(profile.getFirstName() + " " + profile.getLastName() + " " + profile.getPatronymic());
@@ -99,6 +110,8 @@ public class ProfileFragment extends Fragment {
                 binding.numberInterPassport.setText(profile.getInterNumberPassport());
             }
         });
+        binding.usernameProfile.setText(mViewModel.getUserFromIdLive(id).getUsername());
+
     }
 
     public void replaceFragment(Fragment fragment){

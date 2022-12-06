@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.melself.journeygo.MainActivity;
 import com.melself.journeygo.R;
 import com.melself.journeygo.data.model.Country;
 import com.melself.journeygo.data.model.Ticket;
@@ -56,7 +57,14 @@ public class TicketFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(TicketViewModel.class);
 
-        mViewModel.getAllTicketsFromView().observe(getViewLifecycleOwner(), new Observer<List<Ticket>>() {
+//        mViewModel.getAllTicketsFromView().observe(getViewLifecycleOwner(), new Observer<List<Ticket>>() {
+//            @Override
+//            public void onChanged(List<Ticket> tickets) {
+//                ticketAdapter.setTickets(tickets);
+//            }
+//        });
+
+        mViewModel.getTicketPersonFromView(MainActivity.user_id).observe(getViewLifecycleOwner(), new Observer<List<Ticket>>() {
             @Override
             public void onChanged(List<Ticket> tickets) {
                 ticketAdapter.setTickets(tickets);

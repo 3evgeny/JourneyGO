@@ -2,18 +2,25 @@ package com.melself.journeygo.data;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.melself.journeygo.data.model.Country;
 import com.melself.journeygo.data.model.Ticket;
 
-@Entity(tableName = "tickets")
+@Entity(tableName = "tickets", foreignKeys = @ForeignKey(
+        entity = DBProfile.class,
+        parentColumns = "_id",
+        childColumns = "_person_id"))
 public class DBTicket {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "_id")
     private long id;
+
+    @ColumnInfo(name = "_person_id")
+    private long person_id;
 
     @ColumnInfo(name = "_number")
     private String number;
@@ -34,8 +41,9 @@ public class DBTicket {
     public DBTicket() {
     }
 
-    public DBTicket(long id, String number, String country, String hotel, String date, String status) {
+    public DBTicket(long id, long person_id, String number, String country, String hotel, String date, String status) {
         this.id = id;
+        this.person_id = person_id;
         this.number = number;
         this.country = country;
         this.hotel = hotel;
@@ -49,6 +57,14 @@ public class DBTicket {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getPerson_id() {
+        return person_id;
+    }
+
+    public void setPerson_id(long person_id) {
+        this.person_id = person_id;
     }
 
     public String getNumber() {
@@ -94,6 +110,7 @@ public class DBTicket {
     public static DBTicket convertToDBTicket(Ticket ticket){
         DBTicket dbTicket = new DBTicket();
         dbTicket.setId(ticket.getId());
+        dbTicket.setPerson_id(ticket.getPerson_id());
         dbTicket.setNumber(ticket.getNumber());
         dbTicket.setCountry(ticket.getCountry());
         dbTicket.setHotel(ticket.getHotel());
@@ -105,6 +122,7 @@ public class DBTicket {
     public Ticket convertToTicket(){
         Ticket ticket = new Ticket();
         ticket.setId(this.getId());
+        ticket.setPerson_id(this.person_id);
         ticket.setNumber(this.getNumber());
         ticket.setCountry(this.getCountry());
         ticket.setHotel(this.getHotel());

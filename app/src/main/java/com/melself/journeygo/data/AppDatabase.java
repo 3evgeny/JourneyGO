@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {DBCountry.class, DBTicket.class, DBProfile.class}, version = 1)
+@Database(entities = {DBCountry.class, DBTicket.class, DBProfile.class, DBCredo.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     private static final int NUMBER_THREADS = 4;
     public static final ExecutorService databaseWriteExecutor =
@@ -18,6 +18,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract CountryDAO getCountryDAO();
     public abstract TicketDAO getTicketDAO();
     public abstract ProfileDAO getProfileDAO();
+    public abstract CredoDAO getCredoDAO();
 
     private static volatile AppDatabase INSTANCE;
     public static AppDatabase getInstance(Context context){
@@ -27,7 +28,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(
                             context.getApplicationContext(),
                             AppDatabase.class,
-                            "JourneyDB").build();
+                            "JourneyDB").allowMainThreadQueries().build();
                 }
             }
         }

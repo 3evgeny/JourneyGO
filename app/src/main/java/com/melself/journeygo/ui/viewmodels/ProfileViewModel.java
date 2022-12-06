@@ -7,9 +7,11 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.melself.journeygo.data.DBCredo;
 import com.melself.journeygo.data.model.Country;
 import com.melself.journeygo.data.model.Profile;
 import com.melself.journeygo.data.repository.CountryRepository;
+import com.melself.journeygo.data.repository.CredoRepository;
 import com.melself.journeygo.data.repository.ProfileRepository;
 
 import java.util.List;
@@ -17,11 +19,17 @@ import java.util.List;
 public class ProfileViewModel extends AndroidViewModel {
 
     private final ProfileRepository profileRepository;
+    private final CredoRepository credoRepository;
     private LiveData<Profile> getCountry;
 
     public ProfileViewModel(@NonNull Application application) {
         super(application);
         profileRepository = new ProfileRepository(application);
+        credoRepository = new CredoRepository(application);
+    }
+
+    public DBCredo getUserFromIdLive(long id){
+        return credoRepository.getUserFromIdLive(id);
     }
 
     public void insert(Profile profile){

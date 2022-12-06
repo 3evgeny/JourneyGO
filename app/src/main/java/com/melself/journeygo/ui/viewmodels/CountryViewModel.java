@@ -7,14 +7,17 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.melself.journeygo.data.DBCredo;
 import com.melself.journeygo.data.model.Country;
 import com.melself.journeygo.data.repository.CountryRepository;
+import com.melself.journeygo.data.repository.CredoRepository;
 
 import java.util.List;
 
 public class CountryViewModel extends AndroidViewModel {
 
     private final CountryRepository countryRepository;
+    private final CredoRepository credoRepository;
     private LiveData<List<Country>> getAllCountries;
     private LiveData<Country> getCountry;
 
@@ -22,6 +25,7 @@ public class CountryViewModel extends AndroidViewModel {
         super(application);
         countryRepository = new CountryRepository(application);
         getAllCountries = countryRepository.getAllCountriesLive();
+        credoRepository = new CredoRepository(application);
     }
 
     public void insert(Country country){
@@ -42,5 +46,9 @@ public class CountryViewModel extends AndroidViewModel {
 
     public LiveData<Country> getCountryFromView(long id){
         return countryRepository.getCountryLive(id);
+    }
+
+    public DBCredo getCredoId(long id){
+        return credoRepository.getUserFromIdLive(id);
     }
 }

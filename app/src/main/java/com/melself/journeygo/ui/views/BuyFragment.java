@@ -42,7 +42,7 @@ public class BuyFragment extends Fragment {
 
     private String nameHotel;
     private String descriptionHotel;
-    private int priceHotel;
+    private String priceHotel;
 
     long startMillis = 0;
     long endMillis = 0;
@@ -50,7 +50,6 @@ public class BuyFragment extends Fragment {
     String dateStart;
     String dateEnd;
     String dateDb;
-
 
     public static BuyFragment newInstance() {
         return new BuyFragment();
@@ -72,10 +71,11 @@ public class BuyFragment extends Fragment {
         Bundle bundleHotel = this.getArguments();
         nameHotel = bundleHotel.getString("11");
         descriptionHotel = bundleHotel.getString("12");
-        priceHotel = Integer.parseInt(bundleHotel.getString("13"));
+        priceHotel = bundleHotel.getString("13");
 
         binding.hotelName.setText(nameHotel);
         binding.descriptionHotelBuy.setText(descriptionHotel);
+        binding.price.setText("Итоговая цена: " + priceHotel + "руб.");
 
         final Calendar calendar = Calendar.getInstance();
         final int year1 = calendar.get(Calendar.YEAR);
@@ -140,7 +140,7 @@ public class BuyFragment extends Fragment {
 
                 dateDb = dateStart + " - " + dateEnd;
                 System.out.println(descriptionHotel);
-                mViewModel.insert(new Ticket(0, "12345", descriptionHotel, nameHotel, dateDb, "Оплачено"));
+                mViewModel.insert(new Ticket(0, MainActivity.user_id, "12345", descriptionHotel, nameHotel, dateDb, "Оплачено"));
 
             }
         });

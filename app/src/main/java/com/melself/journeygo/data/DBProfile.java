@@ -2,6 +2,7 @@ package com.melself.journeygo.data;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
@@ -14,6 +15,9 @@ public class DBProfile {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "_id")
     private long id;
+
+//    @ColumnInfo(name = "_credo_id")
+//    private long credo_id;
 
     @ColumnInfo(name = "_firstName")
     private String firstName;
@@ -52,6 +56,7 @@ public class DBProfile {
 
     public DBProfile(long id, String firstName, String lastName, String patronymic, String age, String mainPassport, String mainInitialPassport, String mainNumberPassport, String interPassport, String interInitialPassport, String interNumberPassport) {
         this.id = id;
+        //this.credo_id = credo_id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.patronymic = patronymic;
@@ -71,6 +76,14 @@ public class DBProfile {
     public void setId(long id) {
         this.id = id;
     }
+
+//    public long getCredo_id() {
+//        return credo_id;
+//    }
+//
+//    public void setCredo_id(long credo_id) {
+//        this.credo_id = credo_id;
+//    }
 
     public String getFirstName() {
         return firstName;

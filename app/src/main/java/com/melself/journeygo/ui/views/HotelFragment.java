@@ -75,7 +75,6 @@ public class HotelFragment extends Fragment {
         mViewModel.getHotels(location).observe(getViewLifecycleOwner(), new Observer<List<Hotel>>() {
             @Override
             public void onChanged(List<Hotel> hotels) {
-                System.out.println(hotels.get(0).getDescription());
                 hotelAdapter.setHotels(hotels);
             }
         });

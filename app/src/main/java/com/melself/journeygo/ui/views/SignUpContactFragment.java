@@ -1,5 +1,7 @@
 package com.melself.journeygo.ui.views;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -13,7 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.melself.journeygo.AuthActivity;
 import com.melself.journeygo.MainActivity;
+import com.melself.journeygo.R;
 import com.melself.journeygo.data.model.Profile;
 import com.melself.journeygo.databinding.FragmentSignUpContactBinding;
 import com.melself.journeygo.ui.viewmodels.SignUpContactViewModel;
@@ -51,9 +55,9 @@ public class SignUpContactFragment extends Fragment {
         binding.signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mViewModel.insert(
+                mViewModel.update(
                         new Profile(
-                                0,
+                                AuthActivity.maxID,
                                 binding.firstNameSignUp.getText().toString(),
                                 binding.lastNameSignUp.getText().toString(),
                                 binding.patronymicSignUp.getText().toString(),
@@ -65,10 +69,16 @@ public class SignUpContactFragment extends Fragment {
                                 "",
                                 ""
                                 )
-                        )   ;
-                Intent intent = new Intent(getContext(), MainActivity.class);
-                startActivity(intent);
+                        );
+                replaceFragment(new SignInFragment());
             }
         });
+    }
+
+    public void replaceFragment(Fragment fragment){
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.frameAuth, fragment);
+        ft.commit();
     }
 }

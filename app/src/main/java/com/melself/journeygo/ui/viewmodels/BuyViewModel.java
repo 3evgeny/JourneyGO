@@ -41,7 +41,7 @@ public class BuyViewModel extends AndroidViewModel {
         return getAllTickets;
     }
 
-    public LiveData<Ticket> getTicketFromView(long id){
+    public LiveData<List<Ticket>> getTicketFromView(long id){
         return ticketRepository.getTicketLive(id);
     }
 }

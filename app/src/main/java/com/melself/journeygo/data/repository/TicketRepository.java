@@ -57,7 +57,10 @@ public class TicketRepository {
         return new MutableLiveData<List<Ticket>>(new ArrayList<>());
     }
 
-    public LiveData<Ticket> getTicketLive(long id){
-        return Transformations.map(ticketDAO.getTicket(id), dbTicket -> dbTicket.convertToTicket());
+    public LiveData<List<Ticket>> getTicketLive(long person_id){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return Transformations.map(ticketDAO.getTicketPerson(person_id), dbTicket -> dbTicket.stream().map(dbTickett -> dbTickett.convertToTicket()).collect(Collectors.toList()));
+        }
+        return new MutableLiveData<List<Ticket>>(new ArrayList<>());
     }
 }

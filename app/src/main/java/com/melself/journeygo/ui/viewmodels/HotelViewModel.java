@@ -16,7 +16,6 @@ import java.util.List;
 public class HotelViewModel extends ViewModel {
     private final HotelRepository hotelRepository = new HotelRepository();
 
-
     public LiveData<List<Hotel>> getHotels(String country){
         return hotelRepository.getAllHotels(country);
     }

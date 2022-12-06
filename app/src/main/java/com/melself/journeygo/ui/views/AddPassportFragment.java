@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.melself.journeygo.MainActivity;
 import com.melself.journeygo.R;
 import com.melself.journeygo.data.model.Profile;
 import com.melself.journeygo.databinding.FragmentAddPassportBinding;
@@ -60,26 +61,26 @@ public class AddPassportFragment extends Fragment {
                     Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
                 }
                 else if (mode == 1){
-                    mViewModel.getProfileFromView(1).observe(getViewLifecycleOwner(), new Observer<Profile>() {
+                    mViewModel.getProfileFromView(MainActivity.user_id).observe(getViewLifecycleOwner(), new Observer<Profile>() {
                         @Override
                         public void onChanged(Profile profile) {
                             profile.setMainPassport(binding.editNamePassport.getText().toString());
                             profile.setMainInitialPassport(binding.editInitialsPassport.getText().toString());
                             profile.setMainNumberPassport(binding.editNumberPassport.getText().toString());
-                            replaceFragment(new ProfileFragment());
                             mViewModel.update(profile);
+                            replaceFragment(new ProfileFragment());
                         }
                     });
                 }
                 else if (mode == 2){
-                    mViewModel.getProfileFromView(1).observe(getViewLifecycleOwner(), new Observer<Profile>() {
+                    mViewModel.getProfileFromView(MainActivity.user_id).observe(getViewLifecycleOwner(), new Observer<Profile>() {
                         @Override
                         public void onChanged(Profile profile) {
                             profile.setInterPassport(binding.editNamePassport.getText().toString());
                             profile.setInterInitialPassport(binding.editInitialsPassport.getText().toString());
                             profile.setInterNumberPassport(binding.editNumberPassport.getText().toString());
-                            replaceFragment(new ProfileFragment());
                             mViewModel.update(profile);
+                            replaceFragment(new ProfileFragment());
                         }
                     });
                 }

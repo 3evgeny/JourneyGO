@@ -23,4 +23,16 @@
         app:itemIconTint="@drawable/bottom_nav_view_selector"
         app:itemTextColor="@color/white"/>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavViewAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_bottom_nav_view"
+        app:menu="@menu/bottom_nav_items_admin"
+        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+        app:itemIconTint="@drawable/bottom_nav_view_selector"
+        android:visibility="invisible"
+        app:itemTextColor="@color/white"/>
+
 </RelativeLayout>

@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.melself.journeygo.MainActivity;
 import com.melself.journeygo.R;
 import com.melself.journeygo.data.model.Country;
 import com.melself.journeygo.databinding.FragmentCountryBinding;
@@ -76,17 +77,25 @@ public class CountryFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(CountryViewModel.class);
 
-//        mViewModel.insert(new Country(0,"French", "С чего начинать путешествие по Франции. Нельзя встать утром с кровати и огласить семье, что мы завтра едем во Францию", "10000" ));
-//        mViewModel.insert(new Country(0,"Russia", "Россия — страна большая, поэтому определиться с тем, куда поехать, — сложно. ", "9000" ));
-//        mViewModel.insert(new Country(0,"USA", "ША - федеративная президентская республика, которая административно состоит из 50 штатов", "12000" ));
+        if (mViewModel.getCredoId(MainActivity.user_id).getRole() == 1){
+            binding.addNewCountry.setVisibility(View.VISIBLE);
+            binding.newDescription.setVisibility(View.VISIBLE);
+            binding.newCountry.setVisibility(View.VISIBLE);
 
-//        mViewModel.getCountryFromView(4).observe(getViewLifecycleOwner(), new Observer<Country>() {
-//            @Override
-//            public void onChanged(Country country) {
-//                mViewModel.delete(country);
-//            }
-//        });
-
+            binding.addNewCountry.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mViewModel.insert(new Country(0,
+                            binding.newCountry.getText().toString(),
+                            binding.newDescription.getText().toString(),
+                            "0"));
+                }
+            });
+        }else {
+            binding.addNewCountry.setVisibility(View.GONE);
+            binding.newDescription.setVisibility(View.GONE);
+            binding.newCountry.setVisibility(View.GONE);
+        }
 
         mViewModel.getAllCountriesFromView().observe(getViewLifecycleOwner(), new Observer<List<Country>>() {
             @Override

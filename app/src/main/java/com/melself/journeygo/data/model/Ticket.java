@@ -2,6 +2,7 @@ package com.melself.journeygo.data.model;
 
 public class Ticket {
     private long id;
+    private long person_id;
     private String number;
     private String country;
     private String hotel;
@@ -11,8 +12,9 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(long id, String number, String country, String hotel, String date, String status) {
+    public Ticket(long id, long person_id, String number, String country, String hotel, String date, String status) {
         this.id = id;
+        this.person_id = person_id;
         this.number = number;
         this.country = country;
         this.hotel = hotel;
@@ -26,6 +28,14 @@ public class Ticket {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getPerson_id() {
+        return person_id;
+    }
+
+    public void setPerson_id(long person_id) {
+        this.person_id = person_id;
     }
 
     public String getNumber() {
