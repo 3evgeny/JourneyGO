@@ -82,11 +82,17 @@ public class VkSignUpFragment extends Fragment {
         binding.register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mViewModel.insertProfile(new Profile(0, data.getFirstName(),data.getLastName(),"",data.getAge(),"","","","","",""));
-                mViewModel.insert(new DBCredo(0, AuthActivity.maxID,
-                        credo.getUsername(),
-                        ConfigUser.getInstance().email,
-                        "", 0));
+
+                mViewModel.insertProfileCredo(new Profile(0, data.getFirstName(),data.getLastName(),"",data.getAge(),"","","","","",""),
+                        new DBCredo(0, AuthActivity.maxID,
+                                credo.getUsername(),
+                                ConfigUser.getInstance().email,
+                                "", 0));
+//                mViewModel.insertProfile(new Profile(0, data.getFirstName(),data.getLastName(),"",data.getAge(),"","","","","",""));
+//                mViewModel.insert(new DBCredo(0, AuthActivity.maxID,
+//                        credo.getUsername(),
+//                        ConfigUser.getInstance().email,
+//                        "", 0));
                 replaceFragment(new SignInFragment());
             }
         });

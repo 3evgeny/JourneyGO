@@ -26,6 +26,9 @@ public class VkSignUpViewModel extends AndroidViewModel {
         vkRepository = new VkRepository();
     }
 
+    public void insertProfileCredo(Profile profile, DBCredo dbCredo){
+        profileRepository.insertProfileCredo(profile, dbCredo);
+    }
     public void insertProfile(Profile profile){
         profileRepository.insertProfile(profile);
     }
